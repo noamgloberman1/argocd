@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: guestbook
+spec:
+  generators:
+    - git:
+      repoURL: git@github.com:noamgloberman1/argocd.git
+      revision: HEAD
+      files:
+      - path: /costumers/**/values.yaml
+  template:
+    metadata:
+      name: '{{appname}}'
+    spec:
+      project: default
+      source:
+        repoURL: git@github.com:noamgloberman1/argocd.git
+        targetRevision: HEAD
+        path: /sample-app
+        helm:
+          valueFiles:
+          - /costumers/**/values.yaml
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{namespace}}'
