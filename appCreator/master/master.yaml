@@ -17,7 +17,7 @@ spec:
       source:
         repoURL: git@github.com:noamgloberman1/argocd.git
         targetRevision: HEAD
-        path: /sample-app
+        path: sample-app
         helm:
           valueFiles:
           - costumers/**/values.yaml
