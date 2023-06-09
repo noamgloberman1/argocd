@@ -8,7 +8,7 @@ spec:
       repoURL: git@github.com:noamgloberman1/argocd.git
       revision: HEAD
       files:
-      - path: "/costumers/**/values.yaml"
+      - path: "costumers/**/values.yaml"
   template:
     metadata:
       name: '{{appname}}'
@@ -20,7 +20,7 @@ spec:
         path: /sample-app
         helm:
           valueFiles:
-          - /costumers/**/values.yaml
+          - costumers/**/values.yaml
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{namespace}}'
