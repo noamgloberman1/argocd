@@ -5,10 +5,10 @@ metadata:
 spec:
   generators:
     - git:
-      repoURL: git@github.com:noamgloberman1/argocd.git
-      revision: HEAD
-      files:
-      - path: /costumers/**/values.yaml
+        repoURL: git@github.com:noamgloberman1/argocd.git
+        revision: HEAD
+        files:
+        - path: /costumers/**/values.yaml
   template:
     metadata:
       name: '{{appname}}'
